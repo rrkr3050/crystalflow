@@ -183,8 +183,6 @@ log/
 checkpoints/
 pretrained/
 weights/
-# Preserve baseline property models bundled with upstream repository
-!diffcsp/prop_models/**
 
 # Datasets & Processed Tensors
 data/
@@ -207,5 +205,6 @@ eval_gen_*
 *.vasp
 *.cif
 *.XDATCAR
-test*
 
+
+diffcsp/prop_models/
