@@ -1,0 +1,75 @@
+# ==============================================================================
+# CrystalFlow Server-side Requirements (CUDA / PyG-Agnostic Dependencies)
+# ==============================================================================
+# Purpose:
+#   This file contains minimal general-purpose Python dependencies required to run
+#   CrystalFlow and its space-group / geometric constraint pipeline.
+#
+# Server Setup Order (for Kyushu Tech GPU Server / High-Performance Nodes):
+#   1. Create & activate conda environment:
+#      conda create -n crystalflow python=3.11.9 -y
+#      conda activate crystalflow
+#
+#   2. Install PyTorch matching server CUDA version (e.g., CUDA 12.1):
+#      pip install torch==2.3.1 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+#
+#   3. Install PyG and torch_scatter / torch_sparse matching CUDA and PyTorch:
+#      pip install torch_geometric==2.5.3
+#      pip install pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv -f https://data.pyg.org/whl/torch-2.3.0+cu121.html
+#
+#   4. Install this file:
+#      pip install -r requirements-server.txt
+#
+#   5. Install diffcsp package in editable mode:
+#      pip install -e .
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. Crystallography, Structure Parsing & Materials Analysis
+# ------------------------------------------------------------------------------
+pymatgen>=2023.1.20
+ase>=3.22.1
+pyxtal>=0.5.8
+smact>=2.4.0
+matminer>=0.9.0
+spglib>=2.2.0
+chemparse>=0.1.2
+
+# ------------------------------------------------------------------------------
+# 2. Deep Learning Frameworks & Training Control (Non-CUDA specific)
+# ------------------------------------------------------------------------------
+lightning==2.3.2
+finetuning_scheduler>=2.3.0
+torchdyn>=1.0.6
+
+# ------------------------------------------------------------------------------
+# 3. Configuration & Experiment Tracking
+# ------------------------------------------------------------------------------
+hydra-core>=1.3.2
+omegaconf>=2.3.0
+python-dotenv>=1.0.0
+wandb>=0.15.0
+swanlab>=0.3.0
+rich>=13.0.0
+
+# ------------------------------------------------------------------------------
+# 4. Scientific Computing, Numerical Libraries & Graph Theory
+# ------------------------------------------------------------------------------
+numpy>=1.24.0,<2.0.0
+scipy>=1.10.0
+pandas>=2.0.0
+scikit-learn>=1.2.0
+sympy>=1.12
+networkx>=3.0
+
+# ------------------------------------------------------------------------------
+# 5. Multiprocessing, Tensors & Utilities
+# ------------------------------------------------------------------------------
+p_tqdm>=1.4.0
+tqdm>=4.65.0
+pathos>=0.3.0
+einops>=0.6.0
+joblib>=1.2.0
+click>=8.1.0
+ipykernel>=6.20.0
+

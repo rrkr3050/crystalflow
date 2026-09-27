@@ -161,12 +161,51 @@ cython_debug/
 #.idea/
 .vscode/
 
+# Temporary files and directories
 tmp/
+clean/
+
+# Experiment Logs & Hydra Outputs
 singlerun/
 wandb/
 runs/
-clean/
 hydra/
 log/
+*.log
+
+# Model Checkpoints, Weights & Pretrained Models
+*.ckpt
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.onnx
+checkpoints/
+pretrained/
+weights/
+# Preserve baseline property models bundled with upstream repository
+!diffcsp/prop_models/**
+
+# Datasets & Processed Tensors
 data/
+dataset/
+datasets/
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.tar
+*.tar.gz
+*.zip
+*.xz
+*.parquet
+
+# Output Structures & Evaluation Dirs
+results/
+output/
+eval_gen_*
+*.vasp
+*.cif
+*.XDATCAR
 test*
+
