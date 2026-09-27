@@ -101,7 +101,7 @@ def get_swanlab_logger(cfg, save_dir):
             **swanlab_config,
             logdir=save_dir / "swanlab",
             settings=swanlab.Settings(),
-            tags=cfg.core.tags,
+            tags=OmegaConf.to_container(cfg.core.tags, resolve=True),
         )
     else:
         hydra.utils.log.info("Not using <SwanLabLogger>")
