@@ -85,7 +85,6 @@ def get_wandb_logger(cfg, save_dir):
         wandb_logger = WandbLogger(
             **wandb_config,
             save_dir=save_dir,
-            settings=wandb.Settings(start_method="fork"),
             tags=cfg.core.tags,
         )
     else:
